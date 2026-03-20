@@ -24,7 +24,8 @@ export const CreatePost = ({ token }) => {
 
     const handlePublish = () => {
         const post = {
-            categoryId: category,
+            user_id: token,
+            category_id: category,
             title: newPost.title,
             publication_date: new Date(),
             image_url: newPost.image_url,
