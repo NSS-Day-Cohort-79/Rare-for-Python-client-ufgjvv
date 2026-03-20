@@ -29,7 +29,8 @@ export const CreatePost = ({ token }) => {
             publication_date: new Date(),
             image_url: newPost.image_url,
             content: newPost.content,
-            approved: newPost.approved
+            approved: newPost.approved,
+            tags: tag
         }
 
         postPost(post)
