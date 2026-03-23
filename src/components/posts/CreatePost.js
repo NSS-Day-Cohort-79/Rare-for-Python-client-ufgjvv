@@ -26,7 +26,7 @@ export const CreatePost = ({ token }) => {
     }, [token])
 
     const handlePublish = () => {
-        if (category && newPost.title && newPost.image_url && newPost.content && tag) {
+        if (category && newPost.title && newPost.image_url && newPost.content) {
             const post = {
                 user_id: token,
                 category_id: category,
