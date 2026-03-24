@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
 import { Authorized } from "./Authorized"
+import { CategoryList } from "../components/category/CategoryList"
 import { CreatePost } from "../components/posts/CreatePost"
 import CreateCategory from "../components/category/createCategory"
 
@@ -11,6 +12,8 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route path="/login" element={<Login setToken={setToken} />}  />
       <Route path="/register" element={<Register setToken={setToken} />}  />
       <Route element={<Authorized token={token} />}>
+      <Route path="/categories" element={<CategoryList />} />
+        {/* Add Routes here */}
         <Route path="create-post" element={<CreatePost token={token}/>}/>
         
       <Route path="create-category" element={<CreateCategory token={token}/>}/>
