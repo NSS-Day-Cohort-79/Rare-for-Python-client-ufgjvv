@@ -1,6 +1,8 @@
 // --- FILE CREATED FOR COMMENT FORM (TICKET #7) ---
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+
+// --- IMPORT FIXED FOR COMMENT FORM (TICKET #7) ---
 import { createComment } from "../managers/CommentManager"
 
 export const CommentForm = ({ token }) => {
@@ -20,7 +22,12 @@ export const CommentForm = ({ token }) => {
 
         createComment(newComment, token)
             .then(() => {
-                navigate(`/posts/${postId}/comments`)
+
+                // --- SUCCESS MESSAGE ADDED (TICKET #7) ---
+                alert("Comment has successfully been posted!")
+
+                // --- NAVIGATION UPDATED TO HOME PAGE (TICKET #7) ---
+                navigate("/")
             })
     }
 
