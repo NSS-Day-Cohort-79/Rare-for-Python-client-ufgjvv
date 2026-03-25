@@ -40,43 +40,63 @@ export const TagManager = () => {
       <div className="columns">
         {/* LEFT SIDE — TAG LIST */}
         <div className="column is-half">
-          <h2 className="title is-4">Existing Tags</h2>
+          <h2 className="title is-4">Tag Management</h2>
 
           {tags.length === 0 ? (
             <p>No tags yet.</p>
           ) : (
             tags.map((tag) => (
-              <div key={tag.id} className="box">
-                {tag.label}
+              <div
+                key={tag.id}
+                className="box is-flex is-justify-content-space-between"
+              >
+                <span>{tag.label}</span>
+
+                {/* Future buttons */}
+                <div>
+                  <button className="button is-small is-warning mr-2">
+                    Edit
+                  </button>
+                  <button className="button is-small is-danger">Delete</button>
+                </div>
               </div>
             ))
           )}
         </div>
+        {tags.length === 0 ? (
+          <p>No tags yet.</p>
+        ) : (
+          tags.map((tag) => (
+            <div key={tag.id} className="box">
+              {tag.label}
+            </div>
+          ))
+        )}
+      </div>
 
-        {/* RIGHT SIDE — CREATE TAG */}
-        <div className="column is-half">
-          <h2 className="title is-4">Create Tag</h2>
+      {/* RIGHT SIDE — CREATE TAG */}
+      <div className="column is-half">
+        <h2 className="title is-4">Create Tag</h2>
 
-          <div className="box">
-            <form onSubmit={handleSubmit}>
-              <div className="field">
-                <label className="label">Tag Name</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={newTag}
-                    onChange={(e) => setNewTag(e.target.value)}
-                    required
-                  />
-                </div>
+        <div className="box">
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <label className="label">Tag Name</label>
+              <div className="control">
+                <input
+                  type="text"
+                  className="input"
+                  value={newTag}
+                  onChange={(e) => setNewTag(e.target.value)}
+                  required
+                />
               </div>
+            </div>
 
-              <button type="submit" className="button is-primary">
-                Save Tag
-              </button>
-            </form>
-          </div>
+            <button type="submit" className="button is-primary">
+              Save Tag
+            </button>
+          </form>
         </div>
       </div>
     </div>
