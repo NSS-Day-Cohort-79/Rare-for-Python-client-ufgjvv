@@ -1,29 +1,20 @@
 import { useEffect, useState } from "react"
-import { getUserPostsByToken } from "../../managers/postManager"
 import { Link } from "react-router-dom"
+import { getAllPosts } from "../../managers/postManager"
 
-// get user posts
-// useEffect to get user posts watching the token
-// sort array by publication_date
-// add a button that will Link to create-post
-// map() to display userPosts in html format
-// each post will have a settings/edit button and delete button
-    // edit button will navigate to edit post page
-    // delete button will delete the post
-
-export const UserPosts = ({ token }) => {
-    const [userPosts, setUserPosts] = useState([])
+export const AllPosts = ({ token }) => {
+    const [allPosts, setAllPosts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getUserPostsByToken(token).then(setUserPosts)
+        getAllPosts().then(setAllPosts)
     }, [token])
 
     useEffect(() => {
-        if (userPosts.length > 0) {
+        if (allPosts.length > 0) {
             setIsLoading(false)
         }
-    }, [userPosts])
+    }, [allPosts])
 
     const formatDateTime = (dateTime) => {
         if (!dateTime) return ""
@@ -44,26 +35,26 @@ export const UserPosts = ({ token }) => {
         return (
             <div>
                 <div>
-                    <h1>My Posts</h1>
+                    <h1>All Posts</h1>
                 </div>
                 <div>
                     <Link to={"/create-post"}><button>Add Post</button></Link>
                 </div>
                 <div>Loading...</div>
             </div>
-        )    
+        )
     }
 
     return (
         <div>
             <div>
-                <h1>My Posts</h1>
+                <h1>All Posts</h1>
             </div>
             <div>
                 <Link to={"/create-post"}><button>Add Post</button></Link>
             </div>
             <div>
-                {userPosts.map((post) => {
+                {allPosts.map((post) => {
                     return (
                         <div>
                             <div>{post.title}</div>
