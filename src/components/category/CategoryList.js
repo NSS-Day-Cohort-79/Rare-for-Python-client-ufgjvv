@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { getCategories } from "../../managers/CategoryManager";
+import { getCategories } from "../../managers/categoryManager";
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState([])
