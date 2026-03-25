@@ -44,7 +44,7 @@ export const NavBar = ({ token, setToken }) => {
         <div className="navbar-start">
           {token ? (
             <Link to="/" className="navbar-item">
-              Posts
+              All Posts
             </Link>
           ) : (
             ""
@@ -55,23 +55,17 @@ export const NavBar = ({ token, setToken }) => {
           <div className="navbar-item">
             <div className="buttons">
               {token ? (
-                <>
-                  {/* TAG MANAGER BUTTON */}
-                  <Link to="/tags" className="button is-primary">
-                    Tag Manager
-                  </Link>
-
-                  {/* LOGOUT BUTTON */}
-                  <button
-                    className="button is-outlined"
-                    onClick={() => {
-                      setToken("");
-                      navigate("/login");
-                    }}
-                  >
-                    Logout
-                  </button>
-                </>
+                // --- LOGOUT BUTTON UPDATED FOR TICKET #3 ---
+                <button
+                  className="button is-outlined"
+                  onClick={() => {
+                    localStorage.removeItem("auth_token"); // remove token from localStorage
+                    setToken(""); // clear token in state
+                    navigate("/"); // redirect to home page
+                  }}
+                >
+                  Logout
+                </button>
               ) : (
                 <>
                   <Link to="/register" className="button is-link">

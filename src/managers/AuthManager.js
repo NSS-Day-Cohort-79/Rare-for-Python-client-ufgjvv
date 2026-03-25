@@ -1,6 +1,6 @@
 export const loginUser = (user) => {
   return fetch(
-    `http://localhost:8088/users?username=${encodeURIComponent(user.username)}&password=${encodeURIComponent(user.password)}`,
+    `http://localhost:8088/users?username=${user.username}&password=${user.password}`,
   ).then((res) => res.json());
 };
 

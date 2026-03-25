@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { Login } from "../components/auth/Login";
 import { Register } from "../components/auth/Register";
 import { Authorized } from "./Authorized";
-//import { CreatePost } from "../components/CreatePost";
-import { CreateTag } from "../components/CreateTag.js";
-import { TagManager } from "../components/TagManager.js";
+import { CategoryList } from "../components/category/CategoryList";
+import { CreatePost } from "../components/posts/CreatePost";
+import CreateCategory from "../components/category/createCategory";
 
 export const ApplicationViews = ({ token, setToken }) => {
   return (
@@ -18,14 +18,14 @@ export const ApplicationViews = ({ token, setToken }) => {
 
       {/* Protected Routes */}
       <Route element={<Authorized token={token} />}>
-        {/* Posts */}
-        {/* <Route path="/posts/create" element={<CreatePost />} /> */}
+        <Route path="/categories" element={<CategoryList />} />
+        {/* Add Routes here */}
+        <Route path="create-post" element={<CreatePost token={token} />} />
 
-        {/* Tags */}
-        <Route path="/tags" element={<TagManager />} />
-        <Route path="/tags/create" element={<CreateTag />} />
-
-        {/* Add more protected routes here */}
+        <Route
+          path="create-category"
+          element={<CreateCategory token={token} />}
+        />
       </Route>
     </Routes>
   );
