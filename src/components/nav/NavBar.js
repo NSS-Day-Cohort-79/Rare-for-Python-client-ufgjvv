@@ -42,6 +42,7 @@ export const NavBar = ({ token, setToken }) => {
 
       <div className="navbar-menu" ref={navbar}>
         <div className="navbar-start">
+<<<<<<< HEAD
           {token ? (
             <Link to="/" className="navbar-item">
               All Posts
@@ -67,11 +68,29 @@ export const NavBar = ({ token, setToken }) => {
           ) : (
             ""
           )}
+=======
+          {
+            token
+              ?
+              <Link to="/" className="navbar-item">All Posts</Link>
+              :
+              ""
+          }
         </div>
-
+        <div className="navbar-start">
+          {
+            token
+              ?
+              <Link to="/user-posts" className="navbar-item">My Posts</Link>
+              :
+              ""
+          }
+>>>>>>> develop
+        </div>
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
+<<<<<<< HEAD
               {token ? (
                 // --- LOGOUT BUTTON UPDATED FOR TICKET #3 ---
                 <button
@@ -94,10 +113,32 @@ export const NavBar = ({ token, setToken }) => {
                   </Link>
                 </>
               )}
+=======
+              {
+                token
+                  ?
+                  // --- LOGOUT BUTTON UPDATED FOR TICKET #3 ---
+                  <button className="button is-outlined" onClick={() => {
+                    localStorage.removeItem('auth_token') // remove token from localStorage
+                    setToken('')                           // clear token in state
+                    navigate('/')                          // redirect to home page
+                  }}>Logout</button>
+                  :
+                  <>
+                    <Link to="/register" className="button is-link">Register</Link>
+                    <Link to="/login" className="button is-outlined">Login</Link>
+                  </>
+              }
+>>>>>>> develop
             </div>
           </div>
         </div>
       </div>
     </nav>
+<<<<<<< HEAD
   );
 };
+=======
+  )
+}
+>>>>>>> develop

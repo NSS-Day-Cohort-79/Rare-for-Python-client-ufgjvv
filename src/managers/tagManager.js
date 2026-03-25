@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const API = "http://localhost:8088";
 
 export const getTags = () => {
@@ -13,3 +14,8 @@ export const createTag = (tag) => {
     body: JSON.stringify(tag),
   }).then((res) => res.json());
 };
+=======
+export const getTags = () => {
+    return fetch("http://localhost:8088/tags").then(res => res.json())
+}
+>>>>>>> develop
