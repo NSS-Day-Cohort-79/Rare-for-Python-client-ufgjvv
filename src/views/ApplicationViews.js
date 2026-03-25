@@ -7,6 +7,7 @@ import { CreatePost } from "../components/posts/CreatePost"
 import CreateCategory from "../components/category/createCategory"
 import { UserPosts } from "../components/posts/UserPosts"
 import { AllPosts } from "../components/posts/AllPosts"
+import { EditCategory } from "../components/category/EditCategory"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -18,7 +19,8 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="user-posts" element={<UserPosts token={token}/>} />
         <Route path="create-post" element={<CreatePost token={token}/>} />
         <Route path="create-category" element={<CreateCategory token={token}/>} />
-        <Route path="categories" element={<CategoryList />} />
+        <Route path="categories" element={<CategoryList token={token}/>} />
+        <Route path="edit-category/:categoryId" element={<EditCategory />} />
       
       </Route>
     </Routes>

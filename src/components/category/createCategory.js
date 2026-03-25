@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
  
-export default function CreateCategory() {
+export default function CreateCategory({ token }) {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
@@ -31,7 +31,7 @@ export default function CreateCategory() {
         return;
       }
  
-      navigate("/categories");
+      // navigate("/categories");
     } catch (err) {
       setError("An unexpected error occurred. Please try again.");
     } finally {
