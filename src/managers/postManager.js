@@ -8,3 +8,7 @@ export const postPost = (post) => {
         body: JSON.stringify(post)
     })
 }
+
+export const getPostById = (postId) => {
+    return fetch(`http://localhost:8088/posts/${postId}`).then(res => res.json())
+}
