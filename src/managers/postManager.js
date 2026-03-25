@@ -8,3 +8,7 @@ export const postPost = (post) => {
         body: JSON.stringify(post)
     })
 }
+
+export const getUserPostsByToken = (token) => {
+    return fetch(`http://localhost:8088/posts?user_id=${token}&_expand=user&_expand=category`).then(res => res.json())
+}
