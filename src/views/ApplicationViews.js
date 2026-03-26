@@ -8,6 +8,7 @@ import CreateCategory from "../components/category/createCategory";
 import { UserPosts } from "../components/posts/UserPosts";
 import { AllPosts } from "../components/posts/AllPosts";
 import { EditCategory } from "../components/category/EditCategory";
+import { TagManager } from "../components/tags/TagManager";
 
 export const ApplicationViews = ({ token, setToken }) => {
   return (
@@ -21,6 +22,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route index element={<AllPosts token={token} />} />
         <Route path="user-posts" element={<UserPosts token={token} />} />
         <Route path="create-post" element={<CreatePost token={token} />} />
+        <Route path="tags" element={<TagManager token={token} />} />
         <Route
           path="create-category"
           element={<CreateCategory token={token} />}
