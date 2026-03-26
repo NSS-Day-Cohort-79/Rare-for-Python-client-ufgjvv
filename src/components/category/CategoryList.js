@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
-import { getCategories } from "../../managers/categoryManager";
 import { Link } from "react-router-dom";
+import { getCategories } from "../../managers/categoryManager";
 
 export const CategoryList = ({ token }) => {
     const [categories, setCategories] = useState([])
