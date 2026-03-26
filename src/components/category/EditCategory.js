@@ -54,7 +54,7 @@ export const EditCategory = () => {
                 <button type="submit" disabled={submitting}>
                     {submitting ? "Saving..." : "Save"}
                 </button>
-                <button type="button" onClick={() => navigate("/categories")} disabled={submitting}>
+                <button type="button" disabled={submitting}>
                     Cancel
                 </button>
                 </div>
