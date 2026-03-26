@@ -27,16 +27,17 @@ export const EditCategory = () => {
         updateCategory(category).then(() => {
             setError("")
             setSubmitting(false)
+            navigate("/categories")
         })
     }
 
     return (
         <div>
-            <h1>Create Category</h1>
+            <h1>Edit Category</h1>
         
             <form onSubmit={handleChange}>
                 <div>
-                <label htmlFor="category-name">Category Name</label>
+                <label htmlFor="category-label">Category Label</label>
                 <input
                     type="text"
                     value={category.label}
