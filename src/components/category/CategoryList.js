@@ -44,14 +44,17 @@ export const CategoryList = ({ token }) => {
             </div>
             <ul>
                 {filteredCategories.map(category => (
-                     <li key ={category.id}> {category.label} 
-                        <Link to={`/edit-category/${category.id}`}><button>Edit</button></Link> 
+                     <li key ={category.id}> {category.label} {!showConfirm && (
+                        <div>
+                            <Link to={`/edit-category/${category.id}`}><button>Edit</button></Link> 
                         <button onClick={() => {
                             handleDeleteCategory(category.id)
                         }}>Delete</button>
+                        </div>
+                     )}
                         {showConfirm && (
                             <div>
-                                <p>Are you sure?</p>
+                                <p>Are you sure you want to delete {category.label}?</p>
                                 <button onClick={confirmDelete}>Yes</button>
                                 <button onClick={() => setShowConfirm(false)}>Cancel</button>
                             </div>
