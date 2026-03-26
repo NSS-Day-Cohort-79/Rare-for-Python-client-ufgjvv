@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { getCategoryById, updateCategory } from "../../managers/categoryManager"
+import { getCategoryById, updateCategory } from "../../managers/CategoryManager"
 
 export const EditCategory = () => {
     const { categoryId } = useParams()
