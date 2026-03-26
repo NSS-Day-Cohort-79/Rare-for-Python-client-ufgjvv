@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Route, Routes } from "react-router-dom";
 import { Login } from "../components/auth/Login";
 import { Register } from "../components/auth/Register";
@@ -6,17 +5,7 @@ import { Authorized } from "./Authorized";
 import { CategoryList } from "../components/category/CategoryList";
 import { CreatePost } from "../components/posts/CreatePost";
 import CreateCategory from "../components/category/createCategory";
-import { TagManager } from "../components/tags/TagManager";
-=======
-import { Route, Routes } from "react-router-dom"
-import { Login } from "../components/auth/Login"
-import { Register } from "../components/auth/Register"
-import { Authorized } from "./Authorized"
-import { CategoryList } from "../components/category/CategoryList"
-import { CreatePost } from "../components/posts/CreatePost"
-import CreateCategory from "../components/category/createCategory"
-import { UserPosts } from "../components/posts/UserPosts"
->>>>>>> develop
+import { UserPosts } from "../components/posts/UserPosts";
 
 export const ApplicationViews = ({ token, setToken }) => {
   return (
@@ -27,23 +16,13 @@ export const ApplicationViews = ({ token, setToken }) => {
 
       {/* Protected Routes */}
       <Route element={<Authorized token={token} />}>
-<<<<<<< HEAD
-        <Route path="/categories" element={<CategoryList />} />
-        {/* Add Routes here */}
+        <Route path="user-posts" element={<UserPosts token={token} />} />
         <Route path="create-post" element={<CreatePost token={token} />} />
-        <Route path="/tags" element={<TagManager />} />
-
         <Route
           path="create-category"
           element={<CreateCategory token={token} />}
         />
-=======
-        <Route path="user-posts" element={<UserPosts token={token}/>} />
-        <Route path="create-post" element={<CreatePost token={token}/>} />
-        <Route path="create-category" element={<CreateCategory token={token}/>} />
         <Route path="categories" element={<CategoryList />} />
-      
->>>>>>> develop
       </Route>
     </Routes>
   );
