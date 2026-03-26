@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
  
-export default function CreateCategory() {
+export default function CreateCategory({ token }) {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [label, setLabel] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
  
   const handleSubmit = async (e) => {
     e.preventDefault();
  
-    if (!name.trim()) {
-      setError("Category name is required.");
+    if (!label.trim()) {
+      setError("Category label is required.");
       return;
     }
  
@@ -22,7 +22,7 @@ export default function CreateCategory() {
       const response = await fetch("http://localhost:8088/categories", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim() }),
+        body: JSON.stringify({ label: label.trim() }),
       });
  
       if (!response.ok) {
@@ -45,13 +45,13 @@ export default function CreateCategory() {
  
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="category-name">Category Name</label>
+          <label htmlFor="category-name">Category Label</label>
           <input
             id="category-name"
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter category name"
+            value={label}
+            onChange={(e) => setLabel(e.target.value)}
+            placeholder="Enter category label"
             disabled={submitting}
             autoFocus
           />
@@ -62,7 +62,7 @@ export default function CreateCategory() {
           <button type="submit" disabled={submitting}>
             {submitting ? "Creating..." : "Create Category"}
           </button>
-          <button type="button" onClick={() => navigate("/categories")} disabled={submitting}>
+          <button type="button" onClick={() => {navigate("/categories")}} disabled={submitting}>
             Cancel
           </button>
         </div>

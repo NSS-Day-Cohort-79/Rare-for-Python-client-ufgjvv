@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getCategories } from "../../managers/categoryManager"
+import { getCategories } from "../../managers/CategoryManager"
 import { getTags } from "../../managers/tagManager"
 import { postPost } from "../../managers/postManager"
 import { useNavigate } from "react-router-dom"
