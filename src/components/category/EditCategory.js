@@ -18,7 +18,7 @@ export const EditCategory = () => {
  
         if (!category.label.trim()) {
             setError("Category name is required.");
-            return;        
+            return;
         }
 
         setSubmitting(true)
