@@ -62,7 +62,7 @@ export default function CreateCategory({ token }) {
           <button type="submit" disabled={submitting}>
             {submitting ? "Creating..." : "Create Category"}
           </button>
-          <button type="button" disabled={submitting}>
+          <button type="button" onClick={() => {navigate("/categories")}} disabled={submitting}>
             Cancel
           </button>
         </div>
