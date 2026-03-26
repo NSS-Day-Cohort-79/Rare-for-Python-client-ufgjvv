@@ -14,7 +14,7 @@ export const updateCategory = (category) => {
 }
 
 export const deleteCategory = (id) => {
-    return fetch(`http://localhost:8088/categories?id=${id}`, {
+    return fetch(`http://localhost:8088/categories/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
