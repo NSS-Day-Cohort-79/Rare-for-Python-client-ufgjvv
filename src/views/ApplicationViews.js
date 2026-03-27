@@ -1,3 +1,14 @@
+import { Route, Routes } from "react-router-dom"
+import { Login } from "../components/auth/Login"
+import { Register } from "../components/auth/Register"
+import { Authorized } from "./Authorized"
+import { CategoryList } from "../components/category/CategoryList"
+import { CreatePost } from "../components/posts/CreatePost"
+import CreateCategory from "../components/category/createCategory"
+import { UserPosts } from "../components/posts/UserPosts"
+import { AllPosts } from "../components/posts/AllPosts"
+import { EditCategory } from "../components/category/EditCategory"
+import { PostEditForm } from "../components/posts/PostEditForm"
 import { Route, Routes } from "react-router-dom";
 import { Login } from "../components/auth/Login";
 import { Register } from "../components/auth/Register";
@@ -29,6 +40,8 @@ export const ApplicationViews = ({ token, setToken }) => {
         />
         <Route path="categories" element={<CategoryList token={token} />} />
         <Route path="edit-category/:categoryId" element={<EditCategory />} />
+        <Route path="/posts/:postId/edit" element={<PostEditForm/>} />
+      
       </Route>
     </Routes>
   );
