@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getUserPostsByToken } from "../../managers/postManager"
 import { Link } from "react-router-dom"
 import { deletePost } from "../../managers/postManager"
-import { useNavigate } from "react-router-dom"
+
 
 // get user posts
 // useEffect to get user posts watching the token
@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom"
 export const UserPosts = ({ token }) => {
     const [userPosts, setUserPosts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const navigate = useNavigate
+
 
     useEffect(() => {
         getUserPostsByToken(token).then(setUserPosts)

@@ -31,12 +31,12 @@ export const PostEditForm = () => {
             <input
                 type="text"
                 value= {currentPost.title}
-                onchange={(e) => setCurrentPost({...currentPost, title: e.target.value })}
+                onChange={(e) => setCurrentPost({...currentPost, title: e.target.value })}
                 placeholder="Title"
             />
             <textarea
                 value = {currentPost.content}
-                onchange = {(e)=> setCurrentPost({...currentPost, content: e.target.value})}
+                onChange = {(e)=> setCurrentPost({...currentPost, content: e.target.value})}
                 placeholder="Post Content"
             />
             <input
