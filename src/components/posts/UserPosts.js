@@ -43,7 +43,13 @@ export const UserPosts = ({ token }) => {
         })
     }
 
-    
+    const handleDelete = (postId) => {
+        if (window.confirm("Are you sure you want to delete this post?")) {
+            deletePost(postId).then(() => {
+                getUserPostsByToken(token).then(setUserPosts)
+            })
+        }
+    }
 
     if (isLoading) {
         return (
