@@ -84,6 +84,8 @@ export const UserPosts = ({ token }) => {
                             </div>
                             <div>Author: {post.first_name} {post.last_name}</div>
                             <div>Category: {post.label}</div>
+                            <Link to={`/posts/${post.id}/edit`}><button>Edit</button></Link>
+                            <button onClick={()=> handleDelete(post.id)}>Delete</button>
                         </div>
                     )
                 })}
